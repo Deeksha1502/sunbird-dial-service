@@ -2,7 +2,7 @@ name: Build and Push Dial Service Image
 
 on:
   push:
-    branches:
+    tags:
       - '*'
 
 jobs:
