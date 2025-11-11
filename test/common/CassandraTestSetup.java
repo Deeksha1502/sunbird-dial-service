@@ -34,9 +34,10 @@ public class CassandraTestSetup extends WithApplication {
 		try {
 			if (null != session && !session.isClosed()) {
 				session.close();
+				EmbeddedCassandraServerHelper.cleanEmbeddedCassandra();
 			}
 		} catch (Exception e) {
-			System.err.println("Warning: Session cleanup failed - " + e.getMessage());
+			e.printStackTrace();
 		}
 		// Skip EmbeddedCassandraServerHelper.cleanEmbeddedCassandra() to prevent JVM crashes
 		// The JVM will clean up resources on exit
