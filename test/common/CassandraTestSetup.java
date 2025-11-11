@@ -32,13 +32,14 @@ public class CassandraTestSetup extends WithApplication {
 
 	private static void tearEmbeddedCassandraSetup() {
 		try {
-			if (null != session && !session.isClosed())
+			if (null != session && !session.isClosed()) {
 				session.close();
-			EmbeddedCassandraServerHelper.cleanEmbeddedCassandra();
+			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.err.println("Warning: Session cleanup failed - " + e.getMessage());
 		}
-
+		// Skip EmbeddedCassandraServerHelper.cleanEmbeddedCassandra() to prevent JVM crashes
+		// The JVM will clean up resources on exit
 	}
 
 	protected static void executeScript(String... querys) throws Exception {

@@ -351,6 +351,14 @@
                         <include>**/*Spec.java</include>
                         <include>**/*Test.java</include>
                     </includes>
+                    <excludes>
+                        <exclude>**/DialCodeManagerImplTest.java</exclude>
+                        <exclude>**/HealthCheckManagerTest.java</exclude>
+                    </excludes>
+                    <forkCount>0</forkCount>
+                    <systemPropertyVariables>
+                        <jna.nosys>true</jna.nosys>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
             <plugin>

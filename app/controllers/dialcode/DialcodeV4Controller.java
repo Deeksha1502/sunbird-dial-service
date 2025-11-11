@@ -28,7 +28,6 @@ public class DialcodeV4Controller extends BaseController {
     }
 
     public CompletionStage<Result> updateDialCode(Http.Request request, String dialCodeId) {
-        setCurrentRequest(request);
         String apiId = "sunbird.dialcode.update";
         String channelId = request.header("X-Channel-ID").orElse(null);
         Request req = getRequest(request);

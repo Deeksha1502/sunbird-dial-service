@@ -21,7 +21,6 @@ public class DialcodeV3Controller extends BaseController {
     private DialcodeManager dialCodeManager = new DialcodeManager();
 
     public CompletionStage<Result> generateDialCode(Http.Request request) {
-        setCurrentRequest(request);
         String apiId = "sunbird.dialcode.generate";
         String channelId = request.header("X-Channel-ID").orElse(null);
         Request req = getRequest(request);
@@ -47,7 +46,6 @@ public class DialcodeV3Controller extends BaseController {
     }
 
     public CompletionStage<Result> updateDialCode(Http.Request request, String dialCodeId) {
-        setCurrentRequest(request);
         String apiId = "sunbird.dialcode.update";
         String channelId = request.header("X-Channel-ID").orElse(null);
         Request req = getRequest(request);
@@ -62,7 +60,6 @@ public class DialcodeV3Controller extends BaseController {
     }
 
     public CompletionStage<Result> listDialCode(Http.Request request) {
-        setCurrentRequest(request);
         String apiId = "sunbird.dialcode.list";
         Request req = getRequest(request);
         try {
@@ -76,7 +73,6 @@ public class DialcodeV3Controller extends BaseController {
     }
 
     public CompletionStage<Result> searchDialCode(Http.Request request) {
-        setCurrentRequest(request);
         String apiId = "sunbird.dialcode.search";
         Request req = getRequest(request);
         try {
@@ -103,7 +99,6 @@ public class DialcodeV3Controller extends BaseController {
      * @return
      */
     public CompletionStage<Result> syncDialCode(Http.Request request) {
-        setCurrentRequest(request);
         String apiId = "sunbird.dialcode.sync";
         String channelId = request.header("X-Channel-ID").orElse(null);
         String[] ids = request.queryString().get("identifier");
@@ -125,7 +120,6 @@ public class DialcodeV3Controller extends BaseController {
      * @return
      */
     public CompletionStage<Result> publishDialCode(Http.Request request, String dialCodeId) {
-        setCurrentRequest(request);
         String apiId = "sunbird.dialcode.publish";
         String channelId = request.header("X-Channel-ID").orElse(null);
         try {
@@ -145,8 +139,6 @@ public class DialcodeV3Controller extends BaseController {
      */
 
     public CompletionStage<Result> createPublisher(Http.Request request) {
-        setCurrentRequest(request);
-
         String apiId = "sunbird.publisher.create";
         String channelId = request.header("X-Channel-ID").orElse(null);
         Request req = getRequest(request);
@@ -185,7 +177,6 @@ public class DialcodeV3Controller extends BaseController {
      * @return
      */
     public CompletionStage<Result> updatePublisher(Http.Request request, String publisherId) {
-        setCurrentRequest(request);
         String apiId = "sunbird.publisher.update";
         String channelId = request.header("X-Channel-ID").orElse(null);
         Request req = getRequest(request);
